@@ -7,7 +7,9 @@ public class Application {
 		System.out.println("Kartheek");
 		
 		ExcelData data = new ExcelData();
-		data.readFromExcel();
+		ObjectConversion con = new ObjectConversion();
+		con.objectToJson(data.readFromExcel());
+		
 		
 	}
 

@@ -7,7 +7,7 @@ public class ExcelDataToObjData {
 	
 	List<DataLine> datalines = new ArrayList<DataLine>();
 	
-	public void changeExcelDataToObjects(List<List<String>> datalist){
+	public List<DataLine> changeExcelDataToObjects(List<List<String>> datalist){
 		
 		for(List rows: datalist){
 			
@@ -34,6 +34,8 @@ public class ExcelDataToObjData {
 				
 			
 		}
+		
+		return datalines;
 		
 	}
 	

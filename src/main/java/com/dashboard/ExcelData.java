@@ -9,6 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 
 
+
+
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -18,13 +21,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelData {
 	
-	@SuppressWarnings("rawtypes")
-	public List readFromExcel(){
+	
+	public List<DataLine> readFromExcel(){
 		
 		
-		List<List<String>> rows = new ArrayList<List<String>>();
 		
 		
+		List<DataLine> datalines = new ArrayList<DataLine>();
 		
 		try {
 			
@@ -61,7 +64,26 @@ public class ExcelData {
 				
 				}
 				
-				rows.add(columnitems);
+				DataLine dataline = new DataLine();
+				for(int i=0; i<columnitems.size(); i++){
+					
+					
+					
+					dataline.setID(columnitems.get(0));
+					dataline.setFname(columnitems.get(1));
+					dataline.setLname(columnitems.get(2));
+					dataline.setDOB(columnitems.get(3));
+					dataline.setAdd_line1(columnitems.get(4));
+					dataline.setAdd_line2(columnitems.get(5));
+					dataline.setAdd_City(columnitems.get(6));
+					dataline.setAdd_Country(columnitems.get(7));
+					dataline.setAdd_Pin(columnitems.get(8));
+					dataline.setPhone(columnitems.get(9));
+					
+				}
+				
+				datalines.add(dataline);
+				
 				
 			}
 			
@@ -77,7 +99,7 @@ public class ExcelData {
 			e.printStackTrace();
 		}
 		
-		return rows;
+		return datalines;
 		
 	}
 	
