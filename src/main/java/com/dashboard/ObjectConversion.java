@@ -1,6 +1,7 @@
 package com.dashboard;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.JsonGenerationException;
@@ -10,8 +11,9 @@ import org.codehaus.jackson.map.ObjectWriter;
 
 public class ObjectConversion {
 	
+	List<String> jsondocs = new ArrayList<String>();
 	
-	public void objectToJson(List<DataLine> datalines ){
+	public List<String> objectToJson(List<DataLine> datalines ){
 		
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 
@@ -23,6 +25,7 @@ public class ObjectConversion {
 				String json = ow.writeValueAsString(dataline);
 				
 				System.out.println(json);
+				jsondocs.add(json);
 				
 				
 				
@@ -38,6 +41,8 @@ public class ObjectConversion {
 			}
 			
 		}
+		
+		return jsondocs;
 		
 		
 		
